@@ -1,3 +1,3 @@
 # color-tiles
 
-https://saltspeddy.github.io/color-tiles/
+https://color-tiles.netlify.app/
