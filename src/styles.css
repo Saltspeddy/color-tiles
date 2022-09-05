@@ -5,5 +5,9 @@
 @tailwind utilities;
 
 .blocks{
-    @apply bg-tiles border-solid border-2 border-white;
+    @apply bg-tiles;
+}
+
+.blocks-grid{
+    @apply border-solid border-2 border-white;
 }

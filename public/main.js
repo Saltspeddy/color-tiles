@@ -1,7 +1,7 @@
 let contor = 1;
 
 function addCards(){
-    contor = 1;
+    
     const b = document.querySelectorAll("#container");
     for( let i = 0 ; i < b.length ; i++){
         b[i].remove();
@@ -15,17 +15,31 @@ function addCards(){
     parent.innerHTML += '<main id="container" style="display:grid; height:100%; width:100%; grid-template-columns: repeat('+length+',1fr); grid-template-rows: repeat('+height+',1fr);"></main>'
     let area = height * length;
     for( let i = 1 ; i <= area ; i++){
-        document.querySelector("#container").innerHTML += '<div class="blocks" onclick="changeColor('+contor+')"></div>';
+        document.querySelector("#container").innerHTML += '<div class="blocks" ondragover="changeColor(event)" onclick="changeColor(event)"></div>';
         contor++;
     }
     
 }
 
-function changeColor(value){
-
-    console.log(value);
+function changeColor(event){
     let a = document.querySelector("#color").value;
-    let b = document.querySelectorAll(".blocks");
-    b[value - 1].style.backgroundColor = a;
- 
+
+    console.log(event.target);
+    let block = event.target;
+    block.style.backgroundColor = a
+}
+
+let bool = false
+function toogleGrid(){
+    let cards =  document.querySelectorAll(".blocks");
+    if(bool == false){
+        for( let i = 0 ; i < cards.length ; i++ ){
+            cards[i].classList.add("blocks-grid");
+       }
+    }else{
+        for( let i = 0 ; i < cards.length ; i++ ){
+            cards[i].classList.remove("blocks-grid");
+       }
+    }
+    bool = !bool;
 }
